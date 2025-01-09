@@ -8,20 +8,101 @@
 <body>
 
   <script>
+
+
     function getComputerChoice(){
+      let computerChoice = "oui";
       let nombres = [1,2,3];
       let choix = nombres[Math.floor(Math.random()*nombres.length)];
+      //let choix = 2;
       if (choix == 1){
-        console.log("Pierre")
+        console.log("Computer : Pierre")
+        computerChoice="pierre";
       }
       else if (choix == 2){
-        console.log("Papier");
+        console.log("Computer : Papier");
+        computerChoice="papier";
+      }
+      else {
+      console.log("Computer : Ciseaux");
+      computerChoice="ciseaux";
+      }
+      return computerChoice;
+  }
+
+
+  function getHumanChoice(){
+      let humanChoice = "oui";
+      let userInput = prompt("Entrez pierre, papier ou ciseaux:");
+      userInput = userInput.toLowerCase();
+      if (userInput == "pierre"){
+        console.log("Humain : Pierre")
+        humanChoice="pierre";
+      }
+      else if (userInput == "papier"){
+        console.log("Humain : Papier");
+        humanChoice="papier";
+      }
+      else if (userInput == "ciseaux"){
+      console.log("Humain : Ciseaux");
+      humanChoice="ciseaux";
       }
       else{
-      console.log("Ciseaux");
+        console.log("Tu connais pas le jeu ?")
       }
+      return humanChoice;
   }
-getComputerChoice();
+
+
+  function playRound(humanChoice, computerChoice){
+    if(humanChoice == "pierre" && computerChoice == "pierre"){
+      console.log("Egalité");
+    }
+    else if(humanChoice == "pierre" && computerChoice == "papier"){
+      console.log("Perdu");
+      computerScore += 1;
+    }
+    else if(humanChoice == "pierre" && computerChoice == "ciseaux"){
+      console.log("Gagné");
+      humanScore += 1;
+    }
+
+
+    else if(humanChoice == "papier" && computerChoice == "papier"){
+      console.log("Egalité");
+    }
+    else if(humanChoice == "papier" && computerChoice == "ciseaux"){
+      console.log("Perdu");
+      computerScore += 1;
+    }
+    else if(humanChoice == "papier" && computerChoice == "pierre"){
+      console.log("Gagné");
+      humanScore += 1;
+    }
+
+
+    else if(humanChoice == "ciseaux" && computerChoice == "ciseaux"){
+      console.log("Egalité");
+    }
+    else if(humanChoice == "ciseaux" && computerChoice == "pierre"){
+      console.log("Perdu");
+      computerScore += 1;
+    }
+    else if(humanChoice == "ciseaux" && computerChoice == "papier"){
+      console.log("Gagné");
+      humanScore += 1;
+    }
+    console.log("Humain :" + humanScore);
+    console.log("Computer :" + computerScore);
+  }
+
+
+  let humanScore = 0;
+  let computerScore = 0;
+  const humanChoice = getHumanChoice();
+  const computerChoice = getComputerChoice();
+  playRound(humanChoice, computerChoice);
+
 
   </script>
 
