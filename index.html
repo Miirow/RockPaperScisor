@@ -8,7 +8,21 @@
 <body>
 
   <script>
-    console.log("Hello World")
+    function getComputerChoice(){
+      let nombres = [1,2,3];
+      let choix = nombres[Math.floor(Math.random()*nombres.length)];
+      if (choix == 1){
+        console.log("Pierre")
+      }
+      else if (choix == 2){
+        console.log("Papier");
+      }
+      else{
+      console.log("Ciseaux");
+      }
+  }
+getComputerChoice();
+
   </script>
 
 </body>
