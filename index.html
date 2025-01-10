@@ -54,7 +54,9 @@
   }
 
 
-  function playRound(humanChoice, computerChoice){
+  function playRound(){
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
     if(humanChoice == "pierre" && computerChoice == "pierre"){
       console.log("Egalité");
     }
@@ -97,11 +99,20 @@
   }
 
 
+  function playGame(){
+    while(humanScore < 3 && computerScore < 3){
+      playRound();
+    }
+    if (humanScore == 3) {
+        console.log("Vous avez gagné");
+      } else {
+        console.log("Vous avez perdu");
+      }
+  }
+
   let humanScore = 0;
   let computerScore = 0;
-  const humanChoice = getHumanChoice();
-  const computerChoice = getComputerChoice();
-  playRound(humanChoice, computerChoice);
+  playGame();
 
 
   </script>
